@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: petclinic
-          image: 514090833954.dkr.ecr.ca-west-1.amazonaws.com/dglee-k8s-cluster-repo:dd8532fcd54158c96627340cf4a288275fa34955
+          image: 514090833954.dkr.ecr.ca-west-1.amazonaws.com/dglee-k8s-cluster-repo:c7b99fbdb32b6e81fd945b80171fe1b1d7a35bff
           ports:
             - containerPort: 8080
           resources:
