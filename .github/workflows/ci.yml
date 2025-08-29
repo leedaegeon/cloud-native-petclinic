@@ -13,9 +13,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      AWS_REGION: ca-west-1
+      AWS_REGION: ap-northeast-2
       AWS_ACCOUNT_ID: 514090833954
-      ECR_REPOSITORY: dglee-k8s-cluster-repo
+      ECR_REPOSITORY: fs25-cluster-repo
       IMAGE_TAG: ${{ github.sha }}
 
     steps:
@@ -48,11 +48,7 @@ jobs:
       # ECR_REGISTRY 계산 후 이후 스텝에 주입
       - name: Compute ECR_REGISTRY
         run: echo "ECR_REGISTRY=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com" >> $GITHUB_ENV
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          driver: docker-container
-          
+
       - name: Build & Push image
         uses: docker/build-push-action@v6
         with:
